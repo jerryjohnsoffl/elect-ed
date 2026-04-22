@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+/scratch
+.gemini
+.vscode/
+.idea/
 
 # debug
 npm-debug.log*
