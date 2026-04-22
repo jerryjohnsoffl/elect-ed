@@ -2,7 +2,22 @@
 
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #1a1a1a;
+  --color-paper: #f8f6f0;
+  --color-cream: #f0ece0;
+  --color-light: #f5f3ed;
+  --color-border: #d4cfc0;
+  --color-gold: #b8932a;
+  --color-red: #c0392b;
+  --color-blue: #1a3a6b;
+
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+}
+
 :root {
+  /* Keep these for direct CSS var usage in styles or components */
   --ink: #1a1a1a;
   --paper: #f8f6f0;
   --cream: #f0ece0;
@@ -11,9 +26,10 @@
   --gold: #b8932a;
   --red: #c0392b;
   --blue: #1a3a6b;
-  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
 }
+
+
+
 
 * {
   box-sizing: border-box;

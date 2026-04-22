@@ -170,7 +170,9 @@ function Overview({ onNavigate }) {
 
       {/* Key Facts Bar */}
       <div
-        className="bg-blue text-white p-4 px-6 flex gap-8 flex-wrap mb-8"
+        className="bg-[var(--blue)] text-white p-4 px-6 flex justify-center gap-8 flex-wrap mb-8"
+
+
         role="region"
         aria-label="Key election facts"
       >
