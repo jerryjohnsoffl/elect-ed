@@ -11,7 +11,7 @@ const tabs = [
 export default function NavTabs({ activeTab, onTabChange }) {
   return (
     <nav
-      className="flex border-b-2 border-border bg-cream overflow-x-auto"
+      className="flex justify-center border-b-2 border-border bg-cream overflow-x-auto"
       style={{ scrollbarWidth: "none" }}
     >
       {tabs.map((tab) => (
