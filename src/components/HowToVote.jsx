@@ -1,8 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { stepsData } from "@/data/electionData";
 
 export default function HowToVote() {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const [mapSrc, setMapSrc] = useState(
+    `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=polling+station+near+me`
+  );
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setMapSrc(
+            `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=polling+station&center=${latitude},${longitude}&zoom=14`
+          );
+        },
+        (error) => {
+          console.warn("Geolocation access denied or failed:", error.message);
+        }
+      );
+    }
+  }, [apiKey]);
+
   return (
     <section className="animate-fade-in">
       {/* Section Header */}
@@ -90,7 +112,7 @@ export default function HowToVote() {
         </div>
         <div className="border border-border p-2 bg-white shadow-[4px_4px_0_var(--border)] overflow-hidden">
           <iframe
-            src={`https://www.google.com/maps/embed/v1/search?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=polling+place+near+me`}
+            src={mapSrc}
             width="100%"
             height="350"
             className="border-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-300"
