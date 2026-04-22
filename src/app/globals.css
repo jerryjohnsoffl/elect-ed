@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -11,8 +10,8 @@
   --stamp: #8b1a1a;
   --light: #faf8f3;
   --border: #d4c9b0;
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: var(--font-playfair), 'Playfair Display', serif;
+  --font-body: var(--font-source-serif), 'Source Serif 4', sans-serif;
 }
 
 @theme inline {
