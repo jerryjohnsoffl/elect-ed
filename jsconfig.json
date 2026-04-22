@@ -1,7 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["src/*"]
+    },
+
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "checkJs": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": false
+  },
+  "include": ["src"]
 }
+
+
