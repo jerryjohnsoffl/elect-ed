@@ -1,14 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import NavTabs from "@/components/NavTabs";
 import Overview from "@/components/Overview";
 import Timeline from "@/components/Timeline";
 import HowToVote from "@/components/HowToVote";
-import Quiz from "@/components/Quiz";
 import Glossary from "@/components/Glossary";
-import Chatbot from "@/components/Chatbot";
+import Spinner from "@/components/Spinner";
+
+const Quiz = dynamic(() => import("@/components/Quiz"), {
+  loading: () => <Spinner />,
+});
+const Chatbot = dynamic(() => import("@/components/Chatbot"), { ssr: false });
 
 export default function ElectEdApp() {
   const [activeTab, setActiveTab] = useState("overview");

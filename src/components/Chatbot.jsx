@@ -116,6 +116,7 @@ export default function Chatbot() {
         style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.25)" }}
         onClick={() => setIsOpen(!isOpen)}
         title="Ask a question"
+        aria-label="Ask a question"
         id="chat-fab"
       >
         {isOpen ? "✕" : "💬"}
