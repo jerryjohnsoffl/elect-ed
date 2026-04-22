@@ -76,6 +76,33 @@ export default function HowToVote() {
           </div>
         ))}
       </div>
+      {/* Polling Places Map */}
+      <div className="mt-10 border-t-2 border-border pt-8">
+        <div
+          className="mb-4"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "1.1rem",
+            fontWeight: 700,
+          }}
+        >
+          Find a Polling Place Near You
+        </div>
+        <div className="border border-border p-2 bg-white shadow-[4px_4px_0_var(--border)] overflow-hidden">
+          <iframe
+            src={`https://www.google.com/maps/embed/v1/search?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=polling+place+near+me`}
+            width="100%"
+            height="350"
+            className="border-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-300"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+        <p className="mt-4 text-[0.85rem] text-[#666] italic">
+          * Use the map above to locate the nearest official polling station. Check your local election board for specific hours.
+        </p>
+      </div>
     </section>
   );
 }
