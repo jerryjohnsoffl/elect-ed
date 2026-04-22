@@ -1,6 +1,8 @@
 "use client";
 
-export default function Overview({ onNavigate }) {
+import PropTypes from "prop-types";
+
+function Overview({ onNavigate }) {
   const cards = [
     {
       num: "01",
@@ -163,3 +165,9 @@ export default function Overview({ onNavigate }) {
     </section>
   );
 }
+
+Overview.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
+};
+
+export default Overview;

@@ -1,5 +1,7 @@
 "use client";
 
+import PropTypes from "prop-types";
+
 const tabs = [
   { id: "overview", icon: "📋", label: "Overview" },
   { id: "timeline", icon: "📅", label: "Timeline" },
@@ -8,7 +10,7 @@ const tabs = [
   { id: "glossary", icon: "📖", label: "Glossary" },
 ];
 
-export default function NavTabs({ activeTab, onTabChange }) {
+function NavTabs({ activeTab, onTabChange }) {
   return (
     <nav
       className="flex justify-center border-b-2 border-border bg-cream overflow-x-auto"
@@ -26,3 +28,10 @@ export default function NavTabs({ activeTab, onTabChange }) {
     </nav>
   );
 }
+
+NavTabs.propTypes = {
+  activeTab: PropTypes.string.isRequired,
+  onTabChange: PropTypes.func.isRequired,
+};
+
+export default NavTabs;

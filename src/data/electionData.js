@@ -1,3 +1,40 @@
+/**
+ * @typedef {Object} TimelineDetail
+ * @property {string} label
+ * @property {string} val
+ */
+
+/**
+ * @typedef {Object} TimelineItem
+ * @property {string} phase
+ * @property {string} title
+ * @property {string} desc
+ * @property {TimelineDetail[]} details
+ */
+
+/**
+ * @typedef {Object} StepItem
+ * @property {string} title
+ * @property {string} text
+ * @property {string} tip
+ */
+
+/**
+ * @typedef {Object} QuizQuestion
+ * @property {string} q
+ * @property {string[]} opts
+ * @property {number} ans
+ * @property {string} exp
+ */
+
+/**
+ * @typedef {Object} GlossaryItem
+ * @property {string} term
+ * @property {string} tag
+ * @property {string} def
+ */
+
+/** @type {TimelineItem[]} */
 export const timelineData = [
   {
     phase: "Months Before",
@@ -89,6 +126,7 @@ export const timelineData = [
   },
 ];
 
+/** @type {StepItem[]} */
 export const stepsData = [
   {
     title: "Check Your Eligibility",
@@ -132,6 +170,7 @@ export const stepsData = [
   },
 ];
 
+/** @type {QuizQuestion[]} */
 export const quizData = [
   {
     q: "What is the primary purpose of a general election?",
@@ -195,6 +234,7 @@ export const quizData = [
   },
 ];
 
+/** @type {GlossaryItem[]} */
 export const glossaryData = [
   { term: "Ballot", tag: "Voting", def: "The physical paper or digital form used to cast a vote. Each ballot lists the candidates and/or measures being decided." },
   { term: "By-Election", tag: "Elections", def: "A special election held to fill a vacancy in a legislative seat between general elections, usually caused by death, resignation, or disqualification of a member." },
@@ -228,6 +268,7 @@ export const glossaryData = [
   { term: "Polling Day", tag: "Voting", def: "The official day on which citizens cast their votes. Also called Election Day." },
 ].sort((a, b) => a.term.localeCompare(b.term));
 
+/** @type {string[]} */
 export const suggestedChips = [
   "How do I register?",
   "What ID do I need?",

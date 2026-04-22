@@ -5,15 +5,13 @@ import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import NavTabs from "@/components/NavTabs";
 import Overview from "@/components/Overview";
-import Timeline from "@/components/Timeline";
 import HowToVote from "@/components/HowToVote";
-import Glossary from "@/components/Glossary";
-import Spinner from "@/components/Spinner";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
-const Quiz = dynamic(() => import("@/components/Quiz"), {
-  loading: () => <Spinner />,
-});
+const Quiz = dynamic(() => import("@/components/Quiz"), { ssr: false });
 const Chatbot = dynamic(() => import("@/components/Chatbot"), { ssr: false });
+const Glossary = dynamic(() => import("@/components/Glossary"), { ssr: false });
+const Timeline = dynamic(() => import("@/components/Timeline"), { ssr: false });
 
 export default function ElectEdApp() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -24,7 +22,7 @@ export default function ElectEdApp() {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       <Header />
       <NavTabs activeTab={activeTab} onTabChange={handleTabChange} />
       <main className="max-w-[960px] mx-auto py-8 px-6">
@@ -44,6 +42,6 @@ export default function ElectEdApp() {
         authority.
       </footer>
       <Chatbot />
-    </>
+    </ErrorBoundary>
   );
 }
